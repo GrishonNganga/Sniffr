@@ -19,7 +19,7 @@ Micro module uses watchdog library to monitor specified folder for file changes 
 * We will create a new Flask project.
 
 * Create new directory `mkdir Test-Flask`
-* Move into the folder, create virtual environment and activate it. \
+* Move into the folder, create virtual environment and activate it.
 
 ```python 
 cd /Test-Flask
@@ -27,6 +27,60 @@ python -m venv virtual
 source virtual/Script/activate
 
 ```
+* Install Flask extension.
+```python
+pip install flask
+```
+* Create the file that will contain our app.
+`touch app.py`
+
+Okay we are good to go. So we will create a basic functioning Flask app.
+
+```python
+from flask import Flask, session
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+
+    return('Home is where the root is at')
+
+if __name__ == '__main__':
+    app.run()
+
+```
+* We we now have a basic Flask app.
+* Let's now add our **Sniff** Module
+* Since we had already cloned it. We will now import it at the top of `app.py` 
+
+```python
+from flask import Flask, session
+from sniffr import Sniffr
+
+```
+* Let us now use it.
+
+```python
+@app.route('/')
+def go_home():
+    sniff = Sniffr('photos', './model/photos')
+    sniff.run()
+
+    return('Home is where the root is at')
+
+```
+We initialize the Sniffr class and pass in two parameters.\
+* 1. The folder where we expect photos to be saved in.
+* 2. The folder where our model expects the photos for processing.\
+**NB** Note that we are passing them as relative imports.\
+Our example we assumes the model expects photos in the folder ~~photos~~ inside of the directory ~~model~~.\
+We also assume photos uploaded to our site are stored in the folder `/photos`
+* Run the application and go back to your code editor. Drag a photo inside the `/photos` folder.\
+Observe that they are moved into the `./model/photos`
+
+**Further customization to be a working application to come.**
+
 
 ## Known Bugs
 
@@ -38,7 +92,7 @@ There are no known bugs atm. Get in touch if you discover any.
 ## Support and contact details
 
 Reach out to me over email grishon.nganga01@gmail.com
-### MIT License
+### Apache License
 
 Copyright (c) 2020 Sniffr
 
