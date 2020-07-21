@@ -32,7 +32,7 @@ source virtual/Script/activate
 pip install flask
 ```
 * Create the file that will contain our app.
-`touch app.py`
+`touch app.py`\
 
 Okay we are good to go. So we will create a basic functioning Flask app.
 
@@ -50,8 +50,8 @@ if __name__ == '__main__':
     app.run()
 
 ```
-* We we now have a basic Flask app.
-* Let's now add our **Sniff** Module
+* We now have a basic Flask app.
+* Let's now add our **Sniffr** Module
 * Since we had already cloned it. We will now import it at the top of `app.py` 
 
 ```python
@@ -59,6 +59,9 @@ from flask import Flask, session
 from sniffr import Sniffr
 
 ```
+* Before we use. Let us create two folders.\
+    1. `/photos` - This is where photos uploaded to our site will be stored.
+    2. `/model/photos` - This is where we want our photos to be moved to.
 * Let us now use it.
 
 ```python
@@ -70,16 +73,16 @@ def go_home():
     return('Home is where the root is at')
 
 ```
-We initialize the Sniffr class and pass in two parameters.\
-* 1. The folder where we expect photos to be saved in.
+We initialize the Sniffr class and pass in two parameters.
+* 1. The folder where photos uploaded to our site will be saved in.
 * 2. The folder where our model expects the photos for processing.\
 **NB** Note that we are passing them as relative imports.\
-Our example we assumes the model expects photos in the folder ~~photos~~ inside of the directory ~~model~~.\
+Our example we assumes the model expects photos in the folder *photos* inside of the directory *model*.\
 We also assume photos uploaded to our site are stored in the folder `/photos`
 * Run the application and go back to your code editor. Drag a photo inside the `/photos` folder.\
 Observe that they are moved into the `./model/photos`
 
-**Further customization to be a working application to come.**
+**We will continue building the application later.**
 
 
 ## Known Bugs
