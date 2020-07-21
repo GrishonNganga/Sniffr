@@ -10,8 +10,8 @@ Micro module uses watchdog library to monitor specified folder for file changes 
 ### Requirements
 
 ### Setup
-* Clone the repo `git clone https://github.com/GrishonNganga/Sniffr.git`
-* Install Requirements in the sniffer/requirements.txt with `pip install sniffr/requirements.txt`
+* Clone the repo in your application `git clone https://github.com/GrishonNganga/Sniffr.git`
+* Install Requirements in the sniffr/requirements.txt with `pip install sniffr/requirements.txt`
 
 
 ### Flask Example
